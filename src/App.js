@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
+import Contact from "./Directory/Contact";
+import List from './Movie/List';
+import SingleMovie from './Movie/SingleMovieList';
+import BookList from './Library/Book';
+import SingleBook from './Library/SingleBook';
+
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+return (
+  <div>
+<Router>
+  <Routes>
+
+    <Route  path='/Contact' element={<Contact/>}></Route>
+    <Route path='/' element={<List/>}></Route>
+    <Route path="/movie/:id" element={<SingleMovie />} /> 
+    <Route path='/library' element={<BookList/>} />
+    <Route path='/library/book/:id' element={<SingleBook/>} />
+
+      
+ </Routes>
+</Router>
+
+  </div>
+)
+
 }
 
-export default App;
+export default App
